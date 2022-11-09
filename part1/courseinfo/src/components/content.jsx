@@ -7,13 +7,13 @@ const Content = ({ part1, part2, part3 }) => {
   return (
     <div>
       <div>
-        <Part1 name={part1.name} excercise={part1.excercise} />
+        <Part1 name={part1.name} excercise={part1.excercises} />
       </div>
       <div>
-        <Part2 name={part2.name} excercise={part2.excercise} />
+        <Part2 name={part2.name} excercise={part2.excercises} />
       </div>
       <div>
-        <Part3 name={part3.name} excercise={part3.excercise} />
+        <Part3 name={part3.name} excercise={part3.excercises} />
       </div>
     </div>
   );
