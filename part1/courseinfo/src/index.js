@@ -6,25 +6,24 @@ import Total from "./components/total";
 
 const App = () => {
   const course = "Half Stack application development";
-  const part1 = "Fundamentals of React";
-  const exercises1 = 10;
-  const part2 = "Using props to pass data";
-  const exercises2 = 7;
-  const part3 = "State of a component";
-  const exercises3 = 14;
+  const part1 = {
+    name: "Fundamentals of React",
+    excercise: 10,
+  };
+  const part2 = {
+    name: "Using props to pass data",
+    excercise: 7,
+  };
+  const part3 = {
+    name: "State of a component",
+    excercise: 14,
+  };
 
   return (
     <div>
       <Header course={course} />
-      <Content
-        part1={part1}
-        firstValue={exercises1}
-        secondTitle={part2}
-        secondValue={exercises2}
-        thirdTitle={part3}
-        thirdValue={exercises3}
-      />
-      <Total result={exercises1 + exercises2 + exercises3} />
+      <Content part1={part1} part2={part2} part3={part3} />
+      <Total result={part1.excercise + part2.excercise + part3.excercise} />
     </div>
   );
 };

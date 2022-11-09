@@ -1,10 +1,10 @@
 import React from "react";
 
-export const Part1 = ({ firstTitle, firstValue }) => {
+export const Part1 = ({ name, excercise }) => {
   return (
     <div>
-      <h4>{firstTitle}</h4>
-      <label>{firstValue}</label>
+      <h4>{name}</h4>
+      <label>{excercise}</label>
     </div>
   );
 };
