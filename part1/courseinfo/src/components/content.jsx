@@ -1,4 +1,7 @@
 import React from "react";
+import { Part1 } from "./excerciseParts/part1";
+import { Part2 } from "./excerciseParts/part2";
+import { Part3 } from "./excerciseParts/part3";
 
 const Content = ({
   firstTitle,
@@ -11,16 +14,13 @@ const Content = ({
   return (
     <div>
       <div>
-        <h4>{firstTitle}</h4>
-        <label>{firstValue}</label>
+        <Part1 firstTitle={firstTitle} firstValue={firstValue} />
       </div>
       <div>
-        <h4>{secondTitle}</h4>
-        <label>{secondValue}</label>
+        <Part2 secondTitle={secondTitle} secondValue={secondValue} />
       </div>
       <div>
-        <h4>{thirdTitle}</h4>
-        <label>{thirdValue}</label>
+        <Part3 thirdTitle={thirdTitle} thirdValue={thirdValue} />
       </div>
     </div>
   );
