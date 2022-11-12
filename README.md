@@ -1,3 +1,3 @@
 # Midu Bootcamp
 
-## Getting Started
+## Midudev Youtube's Bootcamp
