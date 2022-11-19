@@ -53,7 +53,6 @@ const App = (props) => {
       <div>
         <h3>{props.anecdotes[positionSelected]}</h3>
         <h3>has {positions[positionSelected]}</h3>
-
         <button onClick={() => randomNumber()}>next anecdote</button>
         <button onClick={() => votes(positionSelected)}>vote</button>
       </div>
