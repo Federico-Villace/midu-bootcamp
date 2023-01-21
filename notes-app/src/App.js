@@ -1,18 +1,21 @@
 import { createNote, toggleImportanceOf } from "./reducers/noteReducer";
+import { useDispatch, useSelector } from "react-redux";
 
-export const App = ({ store }) => {
+export const App = () => {
+  const notes = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const addNote = (e) => {
     e.preventDefault();
     const { target } = e;
     const content = target.note.value;
     target.note.value = "";
-    store.dispatch(createNote(content));
+    dispatch(createNote(content));
   };
 
   const toggleImportant = (id) => {
-    store.dispatch(toggleImportanceOf(id));
+    dispatch(toggleImportanceOf(id));
   };
-  const state = store.getState();
 
   return (
     <div>
@@ -21,7 +24,7 @@ export const App = ({ store }) => {
         <button>add note</button>
       </form>
       <ul>
-        {state.map((note) => {
+        {notes.map((note) => {
           return (
             <li
               style={{ cursor: "pointer" }}

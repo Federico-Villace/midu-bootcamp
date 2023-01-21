@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
+import { Provider } from "react-redux";
 import { noteReducer } from "./reducers/noteReducer";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({ reducer: noteReducer });
 
-const renderApp = () => {
-  ReactDOM.render(<App store={store} />, document.getElementById("root"));
-};
-
-renderApp();
-store.subscribe(renderApp);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />,
+  </Provider>,
+  document.getElementById("root")
+);
