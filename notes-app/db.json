@@ -1,0 +1,14 @@
+{
+  "notes": [
+    {
+      "content": "Test note 1",
+      "important": true,
+      "id": 1
+    },
+    {
+      "content": "Test note 2",
+      "important": false,
+      "id": 2
+    }
+  ]
+}

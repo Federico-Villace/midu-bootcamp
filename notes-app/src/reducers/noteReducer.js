@@ -1,17 +1,8 @@
-const initialState = [
-  {
-    content: "Test note 1",
-    important: true,
-    id: 1,
-  },
-  {
-    content: "Test note 2",
-    important: false,
-    id: 2,
-  },
-];
+export const noteReducer = (state = [], action) => {
+  if (action.type === "@notes/init") {
+    return action.payload;
+  }
 
-export const noteReducer = (state = initialState, action) => {
   if (action.type === "@notes/created") {
     return [...state, action.payload];
   }
@@ -46,6 +37,13 @@ export const toggleImportanceOf = (id) => {
     payload: {
       id,
     },
+  };
+};
+
+export const initNotes = (notes) => {
+  return {
+    type: "@notes/init",
+    payload: notes,
   };
 };
 
