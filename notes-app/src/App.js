@@ -1,10 +1,20 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { AddNote } from "./components/AddNote";
+import { FilteredReducers } from "./components/FilteredReducers";
 import { Notes } from "./components/Notes";
+import { initNotes } from "./reducers/noteReducer";
+import { getAll } from "./services/notes";
+import { store } from "./store";
 
 export const App = () => {
-  const filterSelected = (value) => {
-    console.log(value);
-  };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getAll().then((notes) => {
+      dispatch(initNotes(notes));
+    });
+  }, [dispatch]);
 
   return (
     <div>
@@ -12,26 +22,7 @@ export const App = () => {
         <h2>Notes</h2>
         <AddNote />
       </div>
-      <div>
-        all
-        <input
-          type="radio"
-          name="filter"
-          onChange={() => filterSelected("ALL")}
-        />
-        important
-        <input
-          type="radio"
-          name="filter"
-          onChange={() => filterSelected("IMPORTANT")}
-        />
-        notImportant
-        <input
-          type="radio"
-          name="filter"
-          onChange={() => filterSelected("NOT_IMPORTANT")}
-        />
-      </div>
+      <FilteredReducers />
       <div>
         <Notes />
       </div>
