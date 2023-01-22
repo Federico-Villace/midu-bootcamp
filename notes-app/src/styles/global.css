@@ -1,0 +1,17 @@
+html {
+  color-scheme: dark;
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  margin-top: 2em;
+}
+
+form {
+  display: flex;
+}
+
+ul {
+  padding-inline-start: 15px;
+}

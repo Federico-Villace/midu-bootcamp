@@ -14,7 +14,7 @@ export const AddNote = () => {
 
   return (
     <form onSubmit={addNote}>
-      <input name="note" />
+      <input name="note" style={{ marginRight: "10px" }} />
       <button>add note</button>
     </form>
   );
