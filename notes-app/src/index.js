@@ -6,13 +6,14 @@ import { noteReducer } from "./reducers/noteReducer";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import styles from "./styles/global.css";
 import { filterReducer } from "./reducers/filterReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 const rootReducer = combineReducers({
   notes: noteReducer,
   filter: filterReducer,
 });
 
-const store = configureStore({ reducer: rootReducer });
+const store = configureStore({ reducer: rootReducer }, composeWithDevTools());
 
 ReactDOM.render(
   <Provider store={store}>
