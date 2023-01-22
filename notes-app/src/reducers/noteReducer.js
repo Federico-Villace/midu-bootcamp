@@ -1,4 +1,17 @@
-export const noteReducer = (state = [], action) => {
+const initialState = [
+  {
+    content: "Test note 1",
+    important: true,
+    id: 1,
+  },
+  {
+    content: "Test note 2",
+    important: false,
+    id: 2,
+  },
+];
+
+export const noteReducer = (state = initialState, action) => {
   if (action.type === "@notes/created") {
     return [...state, action.payload];
   }
