@@ -4,7 +4,7 @@ import { createNote } from "../../reducers/noteReducer";
 export const AddNote = () => {
   const dispatch = useDispatch();
 
-  const addNote = (e) => {
+  const addNote = async (e) => {
     e.preventDefault();
     const { target } = e;
     const content = target.note.value;
