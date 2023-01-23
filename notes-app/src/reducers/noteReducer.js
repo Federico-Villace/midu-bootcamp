@@ -1,3 +1,5 @@
+import { getAll, createNewNote } from "../services/notes";
+
 export const noteReducer = (state = [], action) => {
   if (action.type === "@notes/init") {
     return action.payload;
@@ -21,13 +23,12 @@ export const noteReducer = (state = [], action) => {
 };
 
 export const createNote = (content) => {
-  return {
-    type: "@notes/created",
-    payload: {
-      content,
-      important: false,
-      id: generateId(),
-    },
+  return async (dispatch) => {
+    const newNote = await createNewNote(content);
+    dispatch({
+      type: "@notes/created",
+      payload: newNote,
+    });
   };
 };
 
@@ -40,11 +41,12 @@ export const toggleImportanceOf = (id) => {
   };
 };
 
-export const initNotes = (notes) => {
-  return {
-    type: "@notes/init",
-    payload: notes,
+export const initNotes = () => {
+  return async (dispatch) => {
+    const notes = await getAll();
+    dispatch({
+      type: "@notes/init",
+      payload: notes,
+    });
   };
 };
-
-export const generateId = () => Math.floor(Math.random() * 999999) + 1;

@@ -9,6 +9,11 @@
       "content": "Test note 2",
       "important": false,
       "id": 2
+    },
+    {
+      "content": "hola que haces ",
+      "important": false,
+      "id": 3
     }
   ]
 }
