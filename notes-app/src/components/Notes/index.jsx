@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleImportanceOf } from "../../reducers/noteReducer";
+import { DeleteNote } from "../DeleteNote";
 
 export const Notes = () => {
   const notes = useSelector((state) => state.notes);
@@ -21,6 +22,7 @@ export const Notes = () => {
             >
               <p>{note.content}</p>
               <strong>{note.important ? "important" : "not important"}</strong>
+              <DeleteNote />
             </li>
           );
         })}
