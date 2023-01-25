@@ -12,3 +12,8 @@ export const createNewNote = async (content) => {
   const res = await axios.post(baseUrl, note);
   return res.data;
 };
+
+export const deleteNote = async (id) => {
+  const response = await axios.delete(baseUrl, id);
+  return response.data;
+};

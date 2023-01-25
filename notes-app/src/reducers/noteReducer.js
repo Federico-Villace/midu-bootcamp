@@ -1,4 +1,4 @@
-import { getAll, createNewNote } from "../services/notes";
+import { getAll, createNewNote, deleteNote } from "../services/notes";
 
 export const noteReducer = (state = [], action) => {
   if (action.type === "@notes/init") {
@@ -6,6 +6,10 @@ export const noteReducer = (state = [], action) => {
   }
 
   if (action.type === "@notes/created") {
+    return [...state, action.payload];
+  }
+
+  if (action.type === "@notes/deleted") {
     return [...state, action.payload];
   }
 
@@ -46,6 +50,16 @@ export const initNotes = () => {
     const notes = await getAll();
     dispatch({
       type: "@notes/init",
+      payload: notes,
+    });
+  };
+};
+
+export const delNote = () => {
+  return async (dispatch) => {
+    const notes = await deleteNote();
+    dispatch({
+      type: "@notes/deleted",
       payload: notes,
     });
   };

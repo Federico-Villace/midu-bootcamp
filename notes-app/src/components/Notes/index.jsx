@@ -22,7 +22,9 @@ export const Notes = () => {
             >
               <p>{note.content}</p>
               <strong>{note.important ? "important" : "not important"}</strong>
-              <DeleteNote />
+              <div>
+                <DeleteNote />
+              </div>
             </li>
           );
         })}
