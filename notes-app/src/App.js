@@ -13,13 +13,12 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div >
       <div>
         <h2>Notes</h2>
         <AddNote />
       </div>
-      <FilteredReducers />
-      <div>
+      <div className="notes">
         <Notes />
       </div>
     </div>

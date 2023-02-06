@@ -1,21 +1,22 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteNote } from "../../services/notes";
+import { delNote } from "../../reducers/noteReducer";
+import { getAll } from "../../services/notes";
 
 export const DeleteNote = () => {
   const dispatch = useDispatch();
 
-  const delNote = (e) => {
+  const deleteNote = async (e) => {
     e.preventDefault();
-    const { target } = e;
-    const id = target.note;
-    console.log(id);
-    target.note.value = "";
-    dispatch(deleteNote(id));
+    const [note] = await getAll()
+    const {id} = note 
+    dispatch(delNote(id));
+    // eslint-disable-next-line no-restricted-globals
+    location.reload()
   };
 
   return (
-    <form onSubmit={delNote}>
+    <form onSubmit={deleteNote}>
       <button>Delete note</button>
     </form>
   );

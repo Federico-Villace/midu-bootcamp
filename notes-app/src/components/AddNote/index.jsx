@@ -8,7 +8,6 @@ export const AddNote = () => {
     e.preventDefault();
     const { target } = e;
     const content = target.note.value;
-    console.log(content);
     target.note.value = "";
     dispatch(createNote(content));
   };

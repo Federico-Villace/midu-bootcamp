@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleImportanceOf } from "../../reducers/noteReducer";
+import {delNote, toggleImportanceOf } from "../../reducers/noteReducer";
 import { DeleteNote } from "../DeleteNote";
+
 
 export const Notes = () => {
   const notes = useSelector((state) => state.notes);
@@ -10,22 +11,29 @@ export const Notes = () => {
     dispatch(toggleImportanceOf(id));
   };
 
+  const deleteNote = (id) => {
+    dispatch(delNote(id))
+  }
+
+
+
   return (
     <div>
       <ul>
         {notes.map((note) => {
           return (
-            <li
-              style={{ cursor: "pointer" }}
-              key={note.id}
-              onClick={() => toggleImportant(note.id)}
-            >
-              <p>{note.content}</p>
-              <strong>{note.important ? "important" : "not important"}</strong>
+            <div key={note.id}> 
+              <li
+                style={{ cursor: "pointer" }}
+                onClick={() => toggleImportant(note.id)}
+              >
+                <p>{note.content}</p>
+                <strong>{note.important ? "important" : "not important"}</strong>
+              </li>
               <div>
-                <DeleteNote />
+                <DeleteNote onClick={() => deleteNote}/>
               </div>
-            </li>
+            </div>
           );
         })}
       </ul>
