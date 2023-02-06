@@ -55,12 +55,14 @@ export const initNotes = () => {
   };
 };
 
-export const delNote = () => {
+export const delNote = (noteId) => {
   return async (dispatch) => {
-    const notes = await deleteNote();
+    const notes = await deleteNote(noteId);
     dispatch({
       type: "@notes/deleted",
-      payload: notes,
+      payload: {
+        notes
+      }
     });
   };
 };
